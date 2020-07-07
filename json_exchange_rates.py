@@ -13,7 +13,7 @@ import json
 class ExchangeRates:
     def __init__(self):
         self.self = self
-
+# add function to call method within methods - add a method that fetches the json dictionary
     def fetch_exchange_rate(self, cur):
         with open("exchange_rates.json") as jsonfile:
             # reading from the file we just created
@@ -24,6 +24,7 @@ class ExchangeRates:
         with open("exchange_rates.json") as jsonfile:
             # reading from the file we just created
             rates = json.load(jsonfile)
+            self.fetch_rates_list()
             x_rates = rates["rates"]  # rates is the whole dict, x_rates is the nested dict
             for cur in curr: # Iterates through the input "curr" which is the list of all the keys in the dict
                 print(f"The exchange rate between EUR and {cur} is", x_rates[cur])
@@ -38,8 +39,8 @@ class ExchangeRates:
 
 c = ExchangeRates()
 
-c.fetch_exchange_rate("AUD")
+# c.fetch_exchange_rate("AUD")
 
 curr = (c.fetch_rates_list())
-
+# print(curr)
 c.fetch_exchange_rates(curr)
