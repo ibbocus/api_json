@@ -18,8 +18,7 @@ class ExchangeRates:
         with open("exchange_rates.json") as jsonfile:
             # reading from the file we just created
             rates = json.load(jsonfile)
-            print(f"The exchange rate between EUR and {cur} is", rates["rates"][
-                cur])  # since this is in the with open block, you know that this is coming from the new file
+            print(f"The exchange rate between EUR and {cur} is", rates["rates"][cur])  # since this is in the with open block, you know that this is coming from the new file
 
     def fetch_exchange_rates(self, curr):
         with open("exchange_rates.json") as jsonfile:
@@ -34,13 +33,13 @@ class ExchangeRates:
             # reading from the file we just created
             rates = json.load(jsonfile)
             x_rates_list = rates["rates"].keys()  # converts the keys of the dictionary "rates" into a list
-            return x_rates_list
+            return list(x_rates_list)
 
 
 c = ExchangeRates()
 
 c.fetch_exchange_rate("AUD")
 
-curr = (list(c.fetch_rates_list()))
+curr = (c.fetch_rates_list())
 
 c.fetch_exchange_rates(curr)
