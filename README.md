@@ -51,6 +51,8 @@ with open("new_json_file.json") as jsonfile:
     car = json.load(jsonfile)
     print(type(car_data)) # returns a dictionary, as only dumps converts to string whereas dump puts a json object somewhere
     print(car['name'])
-    print(car['engine']) #since this is in the with open block, you know that this is coming from the new
+    print(car['engine']) #since this is in the with open block, you know that this is coming from the new file
+    
+# this is in essence the encoding then decoding process
 
 ```"# api_json" 
